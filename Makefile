@@ -24,9 +24,9 @@ all: $(OBJECT)
 
 .c.o:
 	$(CC_x64) -o $(basename $@)_x64.o -c $< $(CFLAGS) $(LFLAGS)
-	$(STRx64) -N $(basename $(notdir $@))_x64.c $(basename $@)_x64.o
+	$(STRx64) -N $(basename $(notdir $@)).c $(basename $@)_x64.o
 	$(CC_x86) -o $(basename $@)_x86.o -c $< $(CFLAGS) $(LFLAGS)
-	$(STRx86) -N $(basename $(notdir $@))_x86.c $(basename $@)_x86.o
+	$(STRx86) -N $(basename $(notdir $@)).c $(basename $@)_x86.o
 
 clean:
 	rm -rf source/*_x64.o
