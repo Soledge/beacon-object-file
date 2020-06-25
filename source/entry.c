@@ -6,17 +6,14 @@
 #include "common.h"
 
 //
-// Beacon Object File ( BOF ) asks that the
-// object file have a "go" symbol, which 
-// will act as its "entrypoint" function for
-// Beacon to call.
+// Go() Function EntryPoint. Used to call
+// code when run with inline-execute command
 //
-VOID beacon_entry( IN PCHAR Buffer, IN ULONG Length ) {
-	//
-	// Code either 1) calling any additional code
-	// or 2) ending here should be put here, so
-	// that it can pass messages back to beacon.
-	// safely.
-	//
-
+VOID go( 
+	IN PCHAR Buffer, 
+	IN ULONG Length 
+) 
+{
+	BeaconPrintf( CALLBACK_OUTPUT, " SUCCESS_MSG " );
+	BeaconPrintf( CALLBACK_ERROR, " FAILURE_MSG " );
 };

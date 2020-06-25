@@ -13,7 +13,7 @@ LD_x86 := i686-w64-mingw32-ld
 
 SOURCE := $(wildcard source/*.c)
 OBJECT := $(SOURCE:%.c=%.o)
-CFLAGS := -Os -s -Qn -nostdlib -falign-functions -ffunction-sections
+CFLAGS := -Os -s -Qn -nostdlib 
 LFLAGS := -Wl,-s,--exclude-all-symbols
 
 all: $(OBJECT)

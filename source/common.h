@@ -5,5 +5,13 @@
 //
 #pragma once
 
+//
+// Common Header Includes
+//
 #include <ntstatus.h>
 #include <windows.h>
+
+//
+// Internal "Beacon" API header
+//
+#include "beacon.h"
