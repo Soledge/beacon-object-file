@@ -8,8 +8,10 @@
 
 CC_x64 := x86_64-w64-mingw32-gcc
 LD_x64 := x86_64-w64-mingw32-ld
+STRx64 := x86_64-w64-mingw32-strip
 CC_x86 := i686-w64-mingw32-gcc
 LD_x86 := i686-w64-mingw32-ld
+STRx86 := i686-w64-mingw32-strip
 
 SOURCE := $(wildcard source/*.c)
 OBJECT := $(SOURCE:%.c=%.o)
@@ -22,7 +24,9 @@ all: $(OBJECT)
 
 .c.o:
 	$(CC_x64) -o $(basename $@)_x64.o -c $< $(CFLAGS) $(LFLAGS)
+	$(STRx64) -N $(basename $(notdir $@))_x64.c $(basename $@)_x64.o
 	$(CC_x86) -o $(basename $@)_x86.o -c $< $(CFLAGS) $(LFLAGS)
+	$(STRx86) -N $(basename $(notdir $@))_x86.c $(basename $@)_x86.o
 
 clean:
 	rm -rf source/*_x64.o
